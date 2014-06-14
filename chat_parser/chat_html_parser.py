@@ -16,7 +16,10 @@ if __name__ == "__main__" and __package__ is None:
     sys.modules["chat_parser"] = mod
     __package__ = 'chat_parser'
 
-    from .html_parser import get_emails_html
+    from .html_parser import parse_html
 
-    html = get_emails_html()
-    print len(html)
+    cgs = parse_html()
+    for cg in cgs:
+        print "conversation: ", cg
+        for c in cg.conversations:
+            print '\t', c
