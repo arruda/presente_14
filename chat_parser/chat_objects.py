@@ -29,7 +29,6 @@ class Conversation(object):
         return self.date + ': [%d]' % len(self.msgs)
 
 
-
 class Message(object):
     author = ""
     msg = ""

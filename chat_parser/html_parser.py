@@ -128,13 +128,13 @@ def parse_html():
 
     html = get_emails_html()
 
-    conversations_groups_html = get_conversations_groups_html(html)
+    conversations_group_list_html = get_conversations_groups_html(html)
 
-    total = len(conversations_groups_html)
+    total = len(conversations_group_list_html)
     done = 0.0
 
     conversations_group_list = []
-    for conversations_group_html in conversations_groups_html:
+    for conversations_group_html in conversations_group_list_html:
         perc_done(done, total)
         conversations_group_list.append(get_conversation_group(conversations_group_html))
         done = done + 1
