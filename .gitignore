@@ -54,3 +54,4 @@ docs/_build/
 
 
 *.sublime-*
+chat_parser/emails.html
