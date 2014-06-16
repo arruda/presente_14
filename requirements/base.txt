@@ -1,0 +1,5 @@
+Django==1.6.5
+beautifulsoup4==4.3.2
+django-model-utils==1.5.0
+django-annoying==0.7.7
+django-h5bp==0.3
