@@ -7,10 +7,10 @@ from bs4 import BeautifulSoup
 from .chat_objects import *
 
 
-def get_emails_html():
+def get_emails_html(path_to_html='emails.html'):
     "returns the html from the emails file"
     html = None
-    with open('emails.html', 'r') as emails_file:
+    with open(path_to_html, 'r') as emails_file:
         html = emails_file.read()
 
     return html
@@ -123,10 +123,10 @@ def perc_done(done, total):
     print "%.f" % (done / total * 100), "%"
 
 
-def parse_html():
+def parse_html(path_to_html):
     "parse the emails html and return them in python objects"
 
-    html = get_emails_html()
+    html = get_emails_html(path_to_html)
 
     conversations_group_list_html = get_conversations_groups_html(html)
 

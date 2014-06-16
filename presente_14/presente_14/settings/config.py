@@ -25,7 +25,7 @@ LOGIN_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'presente_14.urls'
 
-MEDIA_ROOT = LOCAL('media') 
+MEDIA_ROOT = LOCAL('media')
 MEDIA_URL = '/media/'
 
 STATIC_ROOT = LOCAL('static_root')
@@ -61,7 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 	#debug toolbar
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 WSGI_APPLICATION = 'presente_14.wsgi.application'
@@ -72,16 +72,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-    'django.core.context_processors.static',  
+    'django.core.context_processors.static',
 	'django.core.context_processors.tz',
-	'django.contrib.messages.context_processors.messages',  
+	'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
-    
-    #others    
-    
+
+    #others
+
 )
 
-AUTHENTICATION_BACKENDS = ( 
+AUTHENTICATION_BACKENDS = (
         #'user_backends.email_username.EmailOrUsernameModelBackend',
         'django.contrib.auth.backends.ModelBackend',
 )

@@ -8,13 +8,49 @@
     :copyright: (c) 2014 by arruda.
 """
 
+from __future__ import absolute_import
+
 from django.db import models
 
 
-class SomeModel(models.Model):
+class ConversationGroupModel(models.Model):
     """
-    Some model descption
+    A grouping of conversations
     """
+    date = models.DateTimeField(u'Date')
 
     class Meta:
         app_label = 'chat_parser'
+
+    def __unicode__(self):
+        return self.date + ': [%d]' % len(self.conversations.count())
+
+
+class ConversationModel(models.Model):
+    """
+    A group of messages
+    """
+    date = models.DateTimeField(u'Date')
+    group = models.ForeignKey(ConversationGroupModel, related_name='conversations')
+
+    class Meta:
+        app_label = 'chat_parser'
+
+    def __unicode__(self):
+        return self.date + ': [%d]' % len(self.msgs.count())
+
+
+class MessageModel(models.Model):
+    """
+    A message
+    """
+
+    author = models.CharField(u'Author', max_length=250)
+    msg = models.TextField(u'Message')
+    conversation = models.ForeignKey(ConversationModel, related_name='messages')
+
+    class Meta:
+        app_label = 'chat_parser'
+
+    def __unicode__(self):
+        return self.author + ': ' + self.msg

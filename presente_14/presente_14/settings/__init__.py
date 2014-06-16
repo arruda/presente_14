@@ -15,6 +15,7 @@ import os
 MAIN_APP_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DJANGO_ROOT = os.path.dirname(MAIN_APP_ROOT)
 SITE_ROOT = os.path.dirname(DJANGO_ROOT)
+EMAILS_PATH = os.path.join(DJANGO_ROOT, 'char_parser', 'emails.html')
 sys.path.append(DJANGO_ROOT)
 
 SECRET_KEY = '35(!hyv2%=1zo!ly)ohlgx+iycffw(ioe6vg&l6x+(8r9x8tzi'
