@@ -54,9 +54,11 @@ def gen_chat_models():
             conversation_model = ConversationModel(date=date)
             cg_model.conversations.add(conversation_model)
 
+            msgs_models = []
             for msg in conversation.msgs:
-                msg_model = MessageModel(author=msg.author, msg=msg.msg)
-                conversation_model.messages.add(msg_model)
+                msg_model = MessageModel(author=msg.author, msg=msg.msg, conversation=conversation_model)
+                msgs_models.append(msg_model)
+            MessageModel.objects.bulk_create(msgs_models)
 
         done = done + 1
 

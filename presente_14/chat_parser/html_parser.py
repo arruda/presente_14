@@ -93,7 +93,7 @@ def get_messages(conversation_html):
 def message_and_next_span_from_html(span_html):
     "return the Message object for this html and also the next span html"
     author_span = span_html.findNext('span', attrs={'style': 'font-weight:bold'})
-    author = author_span.get_text()
+    author = author_span.get_text().replace('eu', 'Felipe')
     msg = span_html.get_text().replace(author+": ", '')
     return Message(author, msg), author_span.findNext('span')
 
