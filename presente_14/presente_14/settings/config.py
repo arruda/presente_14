@@ -6,9 +6,11 @@ ADMINS = (
 )
 MANAGERS = ADMINS
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = 'America/Los_Angeles'
 
-LANGUAGE_CODE = 'pt-br'
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
+LANGUAGE_CODE = 'en-us'
+
 
 SITE_ID = 1
 
@@ -16,7 +18,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Login/Logout URL
 LOGIN_URL = '/login/'

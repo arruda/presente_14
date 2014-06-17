@@ -22,8 +22,8 @@ class ConversationGroupModel(models.Model):
     class Meta:
         app_label = 'chat_parser'
 
-    def __unicode__(self):
-        return self.date + ': [%d]' % len(self.conversations.count())
+    # def __unicode__(self):
+    #     return self.date + ': [%d]' % self.conversations.count()
 
 
 class ConversationModel(models.Model):
@@ -31,13 +31,13 @@ class ConversationModel(models.Model):
     A group of messages
     """
     date = models.DateTimeField(u'Date')
-    group = models.ForeignKey(ConversationGroupModel, related_name='conversations')
+    group = models.ForeignKey(ConversationGroupModel, related_name='conversations', blank=True, null=True)
 
     class Meta:
         app_label = 'chat_parser'
 
-    def __unicode__(self):
-        return self.date + ': [%d]' % len(self.msgs.count())
+    # def __unicode__(self):
+    #     return self.date + ': [%d]' % self.messages.count()
 
 
 class MessageModel(models.Model):
@@ -47,7 +47,7 @@ class MessageModel(models.Model):
 
     author = models.CharField(u'Author', max_length=250)
     msg = models.TextField(u'Message')
-    conversation = models.ForeignKey(ConversationModel, related_name='messages')
+    conversation = models.ForeignKey(ConversationModel, related_name='messages', blank=True, null=True)
 
     class Meta:
         app_label = 'chat_parser'
