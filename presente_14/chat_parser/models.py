@@ -22,8 +22,8 @@ class ConversationGroupModel(models.Model):
     class Meta:
         app_label = 'chat_parser'
 
-    # def __unicode__(self):
-    #     return self.date + ': [%d]' % self.conversations.count()
+    def __unicode__(self):
+        return self.date
 
 
 class ConversationModel(models.Model):
@@ -36,8 +36,8 @@ class ConversationModel(models.Model):
     class Meta:
         app_label = 'chat_parser'
 
-    # def __unicode__(self):
-    #     return self.date + ': [%d]' % self.messages.count()
+    def __unicode__(self):
+        return self.date
 
 
 class MessageModel(models.Model):
