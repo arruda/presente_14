@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import patterns, include, url
+from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns('chat_parser.views',
+     url(r'^$', 'printing_chats', name='printing_chats'),
 
 )

@@ -28,13 +28,24 @@
         {% block django-h5bp-css %}
         <link rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
         <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
         </style>
         <link rel="stylesheet" href="{% static "css/bootstrap/bootstrap-theme.min.css" %}">
         <link rel="stylesheet" href="{% static "css/bootstrap/main.css" %}">
+        <style>
+          @page  {
+            page: A4;
+            margin: 1cm 1cm;
+          }
+          .row {
+
+            page-break-inside: avoid;
+          }
+          .col-lg-12 {
+
+                font-size: 13px;
+                line-height: 16px;
+          }
+        </style>
         {% endblock %}
 
         {% block css-extras %}{% endblock %}
@@ -67,6 +78,11 @@
       </div>
          {% endblock %}
 
+      <footer>
+        {% block footer %}
+        <p></p>
+        {% endblock %}
+      </footer>
     </div> <!-- /container -->
 
         {% block django-h5bp-js %}

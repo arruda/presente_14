@@ -21,6 +21,7 @@ class ConversationGroupModel(models.Model):
 
     class Meta:
         app_label = 'chat_parser'
+        ordering = ['date']
 
     def __unicode__(self):
         return self.date
@@ -35,6 +36,7 @@ class ConversationModel(models.Model):
 
     class Meta:
         app_label = 'chat_parser'
+        ordering = ['date']
 
     def __unicode__(self):
         return self.date

@@ -93,9 +93,17 @@ def get_messages(conversation_html):
 def message_and_next_span_from_html(span_html):
     "return the Message object for this html and also the next span html"
     author_span = span_html.findNext('span', attrs={'style': 'font-weight:bold'})
-    author = author_span.get_text().replace('eu', 'Felipe')
-    msg = span_html.get_text().replace(author+": ", '')
+    author = author_span.get_text().replace('eu', 'felipe').capitalize()
+    msg = span_html.get_text()
+    msg = remove_author_from_message(msg)
     return Message(author, msg), author_span.findNext('span')
+
+
+def remove_author_from_message(message_txt):
+    "removes the author from the message text"
+    first_ddot = message_txt.find(':')
+    message_txt = message_txt[first_ddot+2:]
+    return message_txt
 
 
 def get_conversation_date(conversation_html):
