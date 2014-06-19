@@ -33,7 +33,10 @@
         <link rel="stylesheet" href="{% static "css/bootstrap/main.css" %}">
         <style>
           @page  {
+            {% comment %}
             page: A4;
+            {% endcomment %}
+            size: letter;
             margin: 1cm 1cm;
           }
           .row {
