@@ -50,6 +50,7 @@ class MessageModel(models.Model):
     author = models.CharField(u'Author', max_length=250)
     msg = models.TextField(u'Message')
     conversation = models.ForeignKey(ConversationModel, related_name='messages', blank=True, null=True)
+    is_next_same_author = models.BooleanField(u'Next message is same author?', default=False)
 
     class Meta:
         app_label = 'chat_parser'

@@ -119,6 +119,10 @@ def get_conversation_group(conversations_group_html):
     for conversation_html in get_conversations_html(conversations_group_html):
         msgs = get_messages(conversation_html)
         date = get_conversation_date(conversation_html)
+        # if "Mar 21 2012 23:23:21" in date:
+        #     import pdb;pdb.set_trace()
+        #     print "a"
+        # 2012-03-21 23:23:21
         conversation = Conversation(date, msgs)
         conversation_list.append(conversation)
 

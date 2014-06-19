@@ -55,8 +55,21 @@ def gen_chat_models():
             cg_model.conversations.add(conversation_model)
 
             msgs_models = []
+            last_author = ""
             for msg in conversation.msgs:
-                msg_model = MessageModel(author=msg.author, msg=msg.msg, conversation=conversation_model)
+                same_author = True
+                if last_author != msg.author:
+                    last_author = msg.author
+                    same_author = False
+                if len(msgs_models) != 0:
+                    #update last msg to the correct value
+                    msgs_models[-1].is_next_same_author = same_author
+
+                msg_model = MessageModel(
+                    author=msg.author,
+                    msg=msg.msg,
+                    conversation=conversation_model
+                )
                 msgs_models.append(msg_model)
             MessageModel.objects.bulk_create(msgs_models)
 

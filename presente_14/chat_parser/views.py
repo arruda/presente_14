@@ -18,7 +18,6 @@ from .models import ConversationGroupModel, ConversationModel, MessageModel
 
 @render_to("chat.html")
 def printing_chats(request):
-    # import pdb;pdb.set_trace()
     cgs = ConversationGroupModel.objects.all()
-
+    last_author=""
     return locals()
