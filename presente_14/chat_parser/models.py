@@ -17,6 +17,8 @@ class ConversationGroupModel(models.Model):
     """
     A grouping of conversations
     """
+    chapter = models.CharField(u'Chapter', max_length=250, blank=True, null=True)
+    page = models.IntegerField(u'Page', blank=True, null=True)
     date = models.DateTimeField(u'Date')
 
     class Meta:
@@ -24,7 +26,10 @@ class ConversationGroupModel(models.Model):
         ordering = ['date']
 
     def __unicode__(self):
-        return self.date
+        if self.chapter:
+            return self.chapter + " %s" % (self.date)
+
+        return "%s" % (self.date)
 
 
 class ConversationModel(models.Model):
@@ -50,7 +55,7 @@ class MessageModel(models.Model):
     author = models.CharField(u'Author', max_length=250)
     msg = models.TextField(u'Message')
     conversation = models.ForeignKey(ConversationModel, related_name='messages', blank=True, null=True)
-    is_same_last_author = models.BooleanField(u'LAst message was from same author?', default=False)
+    is_same_last_author = models.BooleanField(u'Last message was from same author?', default=False)
 
     class Meta:
         app_label = 'chat_parser'

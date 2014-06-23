@@ -19,5 +19,5 @@ from .models import ConversationGroupModel, ConversationModel, MessageModel
 @render_to("chat.html")
 def printing_chats(request):
     cgs = ConversationGroupModel.objects.all()
-    last_author=""
+    cgsc = cgs.exclude(chapter__isnull=True).exclude(chapter__exact='')
     return locals()

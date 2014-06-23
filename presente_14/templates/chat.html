@@ -1,12 +1,31 @@
 {% extends "util/base.html" %}
 
 {% block main-container %}
+    <hr/>
+    {% for conversation_group_chapters in cgsc %}
+        <div class="row">
+            <div class="col-lg-6">
+              <span >{{conversation_group_chapters.chapter}}</span><span>{{conversation_group_chapters.page}}</span>
+            </div>
+        </div>
+    {% endfor %}
+    <div class="row chapter">
+    </div>
+
 {% for conversation_group in cgs %}
     <hr/>
+    {% if conversation_group.chapter %}
+        <div class="row chapter">
+            <div class="col-lg-12">
+              <h1>{{conversation_group.chapter}}</h1>
+            </div>
+        </div>
+    {% endif %}
+
     {% for conversation in conversation_group.conversations.all %}
     <div class="row">
         <div class="col-lg-12">
-          <h3>{{conversation.date}}</h2>
+          <h3>{{conversation.date}}</h3>
         </div>
     </div>
 
@@ -15,7 +34,7 @@
             <div class="col-lg-12">
             {% if message.is_same_last_author %}
             {% else %}
-              <h4>{{message.author}}:</h3>
+              <h4>{{message.author}}:</h4>
             {% endif %}
               <p>{{message.msg}}</p>
             </div>
