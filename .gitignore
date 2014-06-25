@@ -56,4 +56,4 @@ docs/_build/
 *.sublime-*
 presente_14/chat_parser/emails*.html
 presente_14/db.sqlite
-presente_14/emails.json
+presente_14/emails*.json
