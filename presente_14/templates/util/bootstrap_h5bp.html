@@ -37,7 +37,7 @@
             page: A4;
             {% endcomment %}
             size: letter;
-            margin: 1cm 1cm;
+            margin: 1cm 2cm 1cm 2cm;
           }
           .row {
 
@@ -47,12 +47,17 @@
 
                 font-size: 30px;
                 line-height: 32px;
+                page-break-inside: avoid;
           }
           .col-lg-12 h4 {
                 font-size: 36px;
                 font-weight: bold;
           }
           .chapter {
+            page-break-after: always;
+            page-break-before: always;
+          }
+          .indice {
             page-break-after: always;
             page-break-before: avoid;
           }
